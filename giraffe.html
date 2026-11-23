@@ -1,0 +1,39 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Жираф в 3D — Зоомир</title><meta name="description" content="Самое высокое животное на Земле. В шее всего 7 позвонков, как у человека.">
+<meta name="theme-color" content="#173f30">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="logo" href="./"><span class="paw">🐾</span>Зоомир<b>3D</b></a>
+<nav><a href="leopard.html">Леопард</a><a href="kite.html">Коршун</a><a href="giraffe.html">Жираф</a><a href="elephant.html">Слон</a><a href="penguin.html">Пингвин</a><a href="flamingo.html">Фламинго</a></nav></header>
+<main class="animal" style="--c1:#fbe3b6;--c2:#f3b86c;--accent:#efb04a">
+<section class="stage">
+<model-viewer id="mv" src="models/giraffe.glb" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" ar-placement="floor"
+ camera-controls touch-action="pan-y" autoplay auto-rotate auto-rotate-delay="2500" rotation-per-second="14deg" camera-orbit="20deg 70deg auto"
+ shadow-intensity="1.1" shadow-softness="0.8" environment-image="neutral" exposure="1.05" interaction-prompt="auto" alt="3D-модель: Жираф">
+<button slot="ar-button" class="ar-btn">📱 Поставить рядом с собой (AR)</button>
+<div class="progress" slot="progress-bar"><span></span></div>
+</model-viewer>
+<div class="ctrls"><button id="play" title="Анимация">⏸ Анимация</button><button id="rot" title="Автоповорот">⟳ Вращение</button><button id="reset" title="Вернуть камеру">⌖ Сбросить вид</button></div>
+<p class="hint">Крути пальцем · щипок для зума · на телефоне доступна кнопка AR</p>
+</section>
+<section class="info">
+<p class="zone">Саванна · Зоомир</p>
+<h1>Жираф</h1><p class="latin">Giraffa camelopardalis</p>
+<p class="lead">Самое высокое животное на Земле. В шее всего 7 позвонков, как у человека.</p>
+<div class="stats"><div><span>Рост</span><b>до 5,7 м</b></div><div><span>Вес</span><b>до 1,9 т</b></div><div><span>Язык</span><b>около 45 см</b></div></div>
+<h2>Интересные факты</h2><ol class="facts"><li>В шее жирафа всего 7 позвонков, как у человека, только каждый длиной почти 25 см.</li><li>Тёмный язык длиной около 45 см не обгорает на солнце, пока жираф обрывает листья акации.</li><li>Спит всего пару часов в сутки, короткими урывками и часто стоя.</li></ol>
+<figure><img src="img/giraffe.jpg" alt="Рисунок: Жираф" width="1200" height="800" loading="lazy"><figcaption>2D-рисунок из буклета (новый рисунок): векторные кривые Безье</figcaption></figure>
+<div class="pager"><a href="kite.html">← Чёрный коршун</a><a href="elephant.html">Африканский слон →</a></div>
+</section></main>
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+<script type="module">
+const mv=document.getElementById('mv'),play=document.getElementById('play'),rot=document.getElementById('rot');
+const bar=mv.querySelector('.progress span');
+mv.addEventListener('progress',ev=>{bar.style.width=(ev.detail.totalProgress*100)+'%';if(ev.detail.totalProgress===1)mv.querySelector('.progress').classList.add('done');});
+play.onclick=()=>{if(mv.paused){mv.play();play.textContent='⏸ Анимация'}else{mv.pause();play.textContent='▶ Анимация'}};
+rot.onclick=()=>{mv.autoRotate=!mv.autoRotate;rot.classList.toggle('off',!mv.autoRotate)};
+document.getElementById('reset').onclick=()=>{mv.cameraOrbit=mv.getAttribute('camera-orbit');mv.fieldOfView='auto';mv.cameraTarget='auto';mv.jumpCameraToGoal()};
+</script><footer><p><b>Зоомир 3D</b> — учебный проект по дисциплине «Эргономика и дизайн графических интерфейсов». Рисунки и 3D-модели нарисованы вручную: кривые Безье и low-poly геометрия, без фотографий.</p>
+<p>Коршун и леопард перенесены из работы 4 (векторная обводка сплайнами). Источники исходных фото: Wikimedia Commons, Hari K Patibanda (CC BY 2.0), Eric Kilby (CC BY-SA 2.0).</p></footer></body></html>
