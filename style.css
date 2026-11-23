@@ -1,7 +1,7 @@
 
 :root{--ink:#14261e;--green:#173f30;--cream:#fbf6ec;--orange:#f08a24;--muted:#5d6b63;--line:#e6dccb}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif}
+body{margin:0;overflow-x:hidden;background:var(--cream);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif}
 a{color:inherit}
 .top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:20px;padding:12px max(16px,4vw);background:rgba(23,63,48,.96);backdrop-filter:blur(8px);color:#fff}
 .logo{font:700 20px Unbounded,sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
@@ -51,6 +51,6 @@ figure{margin:0 0 24px}figure img{width:100%;height:auto;border-radius:18px;disp
 footer{background:var(--green);color:#cfe0d6;padding:28px max(16px,4vw);font-size:14px}footer p{max-width:900px;margin:0 0 8px}
 @media (max-width:860px){
  .hero{grid-template-columns:1fr;padding-top:24px}.how{grid-template-columns:1fr}
- .animal{grid-template-columns:1fr}.stage{position:relative;top:0;height:min(72vh,620px)}
+ .animal{grid-template-columns:minmax(0,1fr)}.hint{font-size:12px;padding:0 12px}.stage{position:relative;top:0;height:min(72vh,620px)}
  .top nav{display:none}.info{padding:24px 16px}.stats b{font-size:14px}
 }
